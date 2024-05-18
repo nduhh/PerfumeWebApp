@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        <!-- Display search results -->
+        <li th:each="product : ${searchResult}" th:text="${product.name}"></li>
+    </ul>
+</body>
+</html>

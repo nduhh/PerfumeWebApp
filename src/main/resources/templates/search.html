@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Search</title>
+</head>
+<body>
+    <h1>Product Search</h1>
+    <form th:action="@{/search}" method="GET">
+        <label for="productName">Search fragrance</label>
+        <input type="text" id="productName" name="productName">
+        <button type="submit">Search</button>
+    </form>
+    
+        <h1>Search Results</h1>
+        <!-- Get the product directly in the template -->
+        <ul>
+            <!-- Call the findByProductName method from ProductService -->
+            <li th:each="product : ${T(com.perfumes.perfumeswebapp.Services.ProductService).findByProductName(productName)}" 
+                th:text="${product.isPresent() ? product.get().name : 'No items found'}">
+            </li>
+        </ul>
+    
+</body>
+</html>
